@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E7F3F9BE-6229-4B2F-8E88-AB877A22382C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogFinder", "src\LogFinder\LogFinder.csproj", "{AF9E0BC5-0E34-48E3-B083-91A0B6DBBAFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogFinder.Tests", "test\LogFinder.Tests\LogFinder.Tests.csproj", "{846A72C8-8B97-479E-B5A4-80886D86AE95}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF9E0BC5-0E34-48E3-B083-91A0B6DBBAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9E0BC5-0E34-48E3-B083-91A0B6DBBAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9E0BC5-0E34-48E3-B083-91A0B6DBBAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9E0BC5-0E34-48E3-B083-91A0B6DBBAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{846A72C8-8B97-479E-B5A4-80886D86AE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{846A72C8-8B97-479E-B5A4-80886D86AE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{846A72C8-8B97-479E-B5A4-80886D86AE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{846A72C8-8B97-479E-B5A4-80886D86AE95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{846A72C8-8B97-479E-B5A4-80886D86AE95} = {E7F3F9BE-6229-4B2F-8E88-AB877A22382C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC9A7F30-B67B-43BB-9ECA-6B18DBDB9ED0}
