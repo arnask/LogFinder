@@ -1,10 +1,12 @@
-﻿using LogFinder.BusinesLogic.Models;
+﻿using LogFinder.BusinesLogic.Mapping;
+using LogFinder.BusinesLogic.Models;
 using LogFinder.BusinesLogic.Utilities;
+using LogFinder.DataLayer.Repositories;
 
 namespace LogFinder.BusinesLogic.Services;
 
 /// <inheritdoc cref="IQueryExecutorService"/>
-public class QueryExecutorService : IQueryExecutorService
+public class QueryExecutorService(IQueryResultRepository queryResultRepository) : IQueryExecutorService
 {
     private const char ConditionDelimiter = '=';
     private const char Wildcard = '*';
@@ -17,6 +19,8 @@ public class QueryExecutorService : IQueryExecutorService
         List<RowDictionary> filteredData = FilterData(data, parsedQuery);
 
         var queryResult = new QueryResult(query, filteredData);
+
+        queryResultRepository.InsertQueryResult(queryResult.MapToQueryResultEntity());
 
         return queryResult;
     }

@@ -1,15 +1,20 @@
 using LogFinder.BusinesLogic.Models;
 using LogFinder.BusinesLogic.Services;
+using LogFinder.DataLayer.Entities;
+using LogFinder.DataLayer.Repositories;
+using NSubstitute;
 
 namespace LogFinder.Tests;
 
 public class QueryExecutorServiceTests
 {
     private readonly QueryExecutorService _queryExecutorService;
+    private readonly IQueryResultRepository _mockQueryResultRepository;
 
     public QueryExecutorServiceTests()
     {
-        _queryExecutorService = new QueryExecutorService();
+        _mockQueryResultRepository = Substitute.For<IQueryResultRepository>();
+        _queryExecutorService = new QueryExecutorService(_mockQueryResultRepository);
     }
 
     [Theory]
@@ -119,11 +124,13 @@ public class QueryExecutorServiceTests
         return columnDictionary;
     }
 
-    private static void AssertQueryResultIsCorrect(List<RowDictionary> expectedRows, QueryResult queryResult)
+    private void AssertQueryResultIsCorrect(List<RowDictionary> expectedRows, QueryResult queryResult)
     {
         Assert.Equal(expectedRows.Count, queryResult.ResultsCount);
 
         AssertMatchedRowsAreCorrect(expectedRows, queryResult.Result);
+
+        _mockQueryResultRepository.Received(1).InsertQueryResult(Arg.Any<QueryResultEntity>());
     }
 
     private static void AssertMatchedRowsAreCorrect(List<RowDictionary> expectedRows, List<RowDictionary> actualRows)
