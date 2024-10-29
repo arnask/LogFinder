@@ -10,6 +10,7 @@ IHost host = Host.CreateDefaultBuilder(args)
 {
     services.ConfigureSettings<DirectorySettings>(context.Configuration, DirectorySettings.Section);
     services.AddSingleton<IDataParserService, DataParserService>();
+    services.AddSingleton<IQueryExecutorService, QueryExecutorService>();
     services.AddSingleton<App>();
 }).Build();
 
