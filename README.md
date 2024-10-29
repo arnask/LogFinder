@@ -120,7 +120,7 @@ SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' alert
 To change the directory for log files used by the application, you have two options:
 
 ### Option 1: Use the command Line
-You can change the directory in the running application by writing `cd` command combined with the desired path with (only absolute paths are available).
+You can change the directory in the running application by writing `cd` command combined with the desired path (only absolute paths are available).
 
 ```bash
 cd path/to/csv/files
