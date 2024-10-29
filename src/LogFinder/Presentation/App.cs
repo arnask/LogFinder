@@ -69,11 +69,11 @@ public class App(IQueryExecutorService queryExecutorService, IDataParserService 
         Console.WriteLine();
         Console.WriteLine("Applicable query formats:");
         Console.WriteLine("1. [column_name = 'search_string']");
-        Console.WriteLine("2. [SELECT FROM column_name WHERE text = 'search_string']");
+        Console.WriteLine("2. [SELECT FROM WHERE text = 'search_string']");
         Console.WriteLine(" - Example: [signatureId='Microsoft-Windows-Security-Auditing:4608'] or [SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608']");
         Console.WriteLine();
         Console.WriteLine("To add an alert to severity levels, append 'alert' to your query:");
-        Console.WriteLine(" - Example: [column_name = 'search_string' alert] or [SELECT * FROM column_name WHERE text = 'search_string' alert]");
+        Console.WriteLine(" - Example: [column_name = 'search_string' alert] or [SELECT FROM WHERE text = 'search_string' alert]");
         Console.WriteLine();
         Console.WriteLine("To change the files directory, use the following command:");
         Console.WriteLine(" - [cd path/to/csv/files]");
