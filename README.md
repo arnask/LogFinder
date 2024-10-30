@@ -76,7 +76,7 @@ Use bool operators to combine multiple queries. Supported bool operators are: `A
   ```
 
 ### Alerts
-To trigger alerts based on severity level, add "alert" keyword to the end of the query:
+To trigger alerts based on severity level, add `alert` keyword to the end of the query:
 
 - Format: `[column_name = 'search_string' alert]`
 - Example: `signatureId='Microsoft-Windows-Security-Auditing:4608' alert`
@@ -105,7 +105,7 @@ SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' NOT s
 ```
 
 ### Alerts
-To trigger alerts based on severity level, add "alert" keyword to the end of the query:
+To trigger alerts based on severity level, add `alert` keyword to the end of the query:
 
 ```sql
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' alert
