@@ -3,24 +3,24 @@ The **Log Finder** is designed to search through logs using queries.
 
 ---
 
-## Getting Started
+## Getting started
 
 Follow the instructions below to run the app.
 
 ### Prerequisites
 
-Ensure the following are installed on your computer:
+Ensure the following are installed on your machine:
 
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - [Docker](https://www.docker.com/get-started)
 
 ---
 
-## How to Run
+## How to run
 
 ### 1. Clone the repository
 
-Clone the repository to your local machine.
+Clone the repository to your machine.
 
 ```bash
 git clone https://github.com/arnask/LogFinder.git
@@ -85,7 +85,7 @@ To trigger alerts based on severity level, add "alert" keyword to the end of the
 
 ## SQL-like queries
 
-### Basic SQL query
+### Basic query
 
 ```sql
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608'
@@ -118,7 +118,7 @@ SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' alert
 
 To change the directory for log files used by the application, you have two options:
 
-### Option 1: Use the command Line
+### Option 1: Use the command line
 You can change the directory in the running application by writing `cd` command combined with the desired path (only absolute paths are available).
 
 ```bash
