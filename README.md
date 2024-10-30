@@ -1,4 +1,3 @@
-
 # Log Finder
 The **Log Finder** is designed to search through logs using queries.
 
@@ -10,7 +9,7 @@ Follow the instructions below to run the app.
 
 ### Prerequisites
 
-Ensure the following are installed on your machine:
+Ensure the following are installed on your computer:
 
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - [Docker](https://www.docker.com/get-started)
@@ -19,7 +18,7 @@ Ensure the following are installed on your machine:
 
 ## How to Run
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 Clone the repository to your local machine.
 
@@ -27,15 +26,15 @@ Clone the repository to your local machine.
 git clone https://github.com/arnask/LogFinder.git
 ```
 
-### 2. Start Docker and Navigate to the Project Directory
+### 2. Start Docker and navigate to the project directory
 
-Ensure Docker is running, then open a terminal and navigate to the project directory:
+Ensure Docker is running. Then open a terminal and navigate to the project directory, where docker-compose.yml is located:
 
 ```bash
 cd path-to-the-project/LogFinder
 ```
 
-### 3. Run the MongoDB Database with Docker Compose
+### 3. Run the MongoDB database in Docker container
 
 To run the MongoDB database in a Docker container, use the following command:
 
@@ -43,7 +42,7 @@ To run the MongoDB database in a Docker container, use the following command:
 docker-compose up -d
 ```
 
-### 4. Build and Run the .NET Application
+### 4. Build and run the .NET application
 
 Navigate to the folder containing the .NET console application, then build and run it:
 
@@ -56,18 +55,18 @@ dotnet run
 
 ## Query Formats
 
-### Regular Queries
+### Regular queries
 - Format: `[column_name = 'search_string']`
 - Example: `signatureId='Microsoft-Windows-Security-Auditing:4608'`
 
-### Using Partial Text Search
+### Using partial text search
 Use wildcards (`*`) to perform partial text searches.
 
-- Start of Text: `signatureId='4608*'`
-- End of Text: `signatureId='*4608'`
-- Anywhere in Text: `signatureId='*4608*'`
+- Start of text: `signatureId='4608*'`
+- End of text: `signatureId='*4608'`
+- Anywhere in text: `signatureId='*4608*'`
 
-### Bool Operators
+### Bool operators
 Use bool operators to combine multiple queries. Supported bool operators are: `AND`, `OR`, or `NOT`.
 
   ```
@@ -76,37 +75,37 @@ Use bool operators to combine multiple queries. Supported bool operators are: `A
   signatureId='Microsoft-Windows-Security-Auditing:4608' NOT severity='3'
   ```
 
-### Alerts Based on Severity
-To trigger alerts based on severity level:
+### Alerts
+To trigger alerts based on severity level, add "alert" keyword to the end of the query:
 
 - Format: `[column_name = 'search_string' alert]`
 - Example: `signatureId='Microsoft-Windows-Security-Auditing:4608' alert`
 
 ---
 
-## SQL Query Support
+## SQL-like queries
 
-The application also supports SQL-like queries for searching logs.
+### Basic SQL query
 
-### Basic SQL Query
 ```sql
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608'
 ```
 
-### Using Partial Text Search with SQL
-- Start of Text: `SELECT FROM WHERE signatureId = '4608*'`
-- End of Text: `SELECT FROM WHERE signatureId = '*4608'`
-- Anywhere in Text: `SELECT FROM WHERE signatureId = '*4608*'`
+### Using partial text search
+- Start of text: `SELECT FROM WHERE signatureId = '4608*'`
+- End of text: `SELECT FROM WHERE signatureId = '*4608'`
+- Anywhere in text: `SELECT FROM WHERE signatureId = '*4608*'`
 
-### SQL with Bool Operators
+### Bool operators
+
 ```sql
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' AND severity = '3'
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' OR severity = '3'
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' NOT severity = '3'
 ```
 
-### SQL Alerts Based on Severity
-To create alerts using SQL syntax:
+### Alerts
+To trigger alerts based on severity level, add "alert" keyword to the end of the query:
 
 ```sql
 SELECT FROM WHERE signatureId = 'Microsoft-Windows-Security-Auditing:4608' alert
@@ -126,7 +125,7 @@ You can change the directory in the running application by writing `cd` command 
 cd path/to/csv/files
 ```
 ### Option 2: Update the appsettings.json file
-You can update the directory path directly in the appsettings.json file:
+You can update the directory path directly in the appsettings.json file (the application needs to be restarted after this):
 
 ```
 "Directory": {
